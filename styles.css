@@ -651,6 +651,12 @@ h1, h2, h3, h4, h5, h6, p {
         width: 55px;
         height: 55px;
     }
+    
+    /* Fix para grid de features de IA no mobile */
+    .ai-features-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
 }
 
 @media (max-width: 480px) {
