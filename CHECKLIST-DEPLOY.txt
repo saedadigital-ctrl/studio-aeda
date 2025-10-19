@@ -1,0 +1,70 @@
+CHECKLIST DE DEPLOY - STUDIO AEDA DIGITAL
+==========================================
+
+ANTES DO DEPLOY
+----------------
+[x] Todos os arquivos HTML validados
+[x] CSS e JavaScript sem erros
+[x] Imagens otimizadas
+[x] Links funcionando
+
+CONFIGURACOES PENDENTES (IMPORTANTE!)
+--------------------------------------
+[ ] Configurar Google Analytics 4 ID
+[ ] Configurar Facebook Pixel ID
+[ ] Configurar Google Ads IDs
+[ ] Configurar link do Calendly
+
+DEPLOY NO NETLIFY
+-----------------
+1. [ ] Fazer download do studio-aeda-site-final-v2.zip
+2. [ ] Extrair arquivos
+3. [ ] Acessar app.netlify.com
+4. [ ] Fazer upload da pasta
+5. [ ] Aguardar conclusao do deploy
+
+TESTES POS-DEPLOY
+------------------
+[ ] Site carregando corretamente
+[ ] Todas as paginas acessiveis
+[ ] Menu de navegacao funcionando
+[ ] Botao WhatsApp funcionando
+[ ] Formularios funcionando
+[ ] Google Translate ativo
+[ ] Banner LGPD aparecendo
+
+CONFIGURAR ANALYTICS (SEGUIR GUIA-ANALYTICS.MD)
+------------------------------------------------
+[ ] Google Analytics 4
+[ ] Facebook Pixel
+[ ] Google Ads
+[ ] Calendly
+
+VALIDACOES SEO
+--------------
+[ ] Validar Schema em validator.schema.org
+[ ] Submeter sitemap no Google Search Console
+[ ] Testar em PageSpeed Insights
+[ ] Verificar rich snippets
+
+TESTES EM DISPOSITIVOS
+-----------------------
+[ ] Desktop
+[ ] Tablet
+[ ] Mobile
+[ ] Diferentes navegadores
+
+PWA
+---
+[ ] Service Worker registrado
+[ ] App instalavel no mobile
+[ ] Funcionamento offline
+
+CONCLUIDO!
+----------
+[ ] Todas as verificacoes OK
+[ ] Site pronto para uso
+
+Data: ___/___/2025
+Responsavel: _________________
+

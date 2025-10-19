@@ -1,0 +1,47 @@
+# robots.txt para Studio AEDA Digital
+# https://studioaeda.com.br
+
+User-agent: *
+Allow: /
+
+# Bloquear acesso a arquivos e diretórios sensíveis
+Disallow: /cgi-bin/
+Disallow: /.git/
+Disallow: /admin/
+Disallow: /config/
+
+# Permitir acesso a recursos importantes
+Allow: /styles.css
+Allow: /script.js
+Allow: /logo-coruja.png
+Allow: /manifest.json
+
+# Sitemap
+Sitemap: https://studioaeda.com.br/sitemap.xml
+
+# Crawl-delay (opcional, para evitar sobrecarga)
+Crawl-delay: 1
+
+# Bots específicos
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Bloquear bots maliciosos
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+

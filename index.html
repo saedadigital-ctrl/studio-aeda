@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Studio AEDA Digital - Agentes de IA humanizados para atendimento e vendas. Transforme seu negócio com IA.">
+    <title>Studio AEDA Digital - Agentes de IA Humanizados</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos limpos e minimalistas */
+        .hero-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2.5rem auto 2rem;
+            max-width: 700px;
+        }
+        
+        .metric-box {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 1rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid rgba(255, 214, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .metric-box:hover {
+            transform: translateY(-3px);
+            border-color: #ffd600;
+            box-shadow: 0 8px 20px rgba(255, 214, 0, 0.3);
+        }
+        
+        .metric-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ffd600;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        
+        .metric-label {
+            font-size: 0.9rem;
+            color: white;
+            font-weight: 500;
+        }
+        
+        /* Sem ícones - apenas cards limpos */
+        .benefit-card, .industry-card {
+            background: white;
+            padding: 2rem 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .benefit-card:hover, .industry-card:hover {
+            transform: translateY(-3px);
+            border-color: #5b3cc4;
+            box-shadow: 0 4px 15px rgba(91, 60, 196, 0.15);
+        }
+        
+        .benefit-card h3, .industry-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #5b3cc4;
+        }
+        
+        .benefit-card p, .industry-card p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .process-section {
+            background: #f8f9fa;
+            padding: 4rem 0;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+        
+        .process-step {
+            background: white;
+            padding: 2rem 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .process-step:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(91, 60, 196, 0.15);
+        }
+        
+        .process-step::after {
+            content: '→';
+            position: absolute;
+            right: -1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: #5b3cc4;
+            font-weight: bold;
+        }
+        
+        .process-step:last-child::after {
+            display: none;
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #5b3cc4, #7c5fd4);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+        }
+        
+        .process-step h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            color: #5b3cc4;
+        }
+        
+        .process-step p {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        .industries-section {
+            padding: 4rem 0;
+        }
+        
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+        
+        .industries-cta {
+            text-align: center;
+            margin-top: 2.5rem;
+            font-size: 1rem;
+            color: #666;
+        }
+        
+        .industries-cta a {
+            color: #5b3cc4;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid #5b3cc4;
+            transition: all 0.3s;
+        }
+        
+        .industries-cta a:hover {
+            color: #ffd600;
+            border-color: #ffd600;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero-metrics {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .metric-number {
+                font-size: 2rem;
+            }
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+            .process-step::after {
+                display: none;
+            }
+            .industries-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <script src="performance.js" defer></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">
+                    <img src="logo-coruja.png" alt="AEDA Logo" loading="lazy" decoding="async" class="logo-img">
+                    <div class="logo-text">
+                        <span class="logo-title">Studio AEDA Digital</span>
+                        <span class="logo-subtitle">Agentes de IA Humanizados</span>
+                    </div>
+                </a>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="servicos.html">Serviços</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="privacidade.html">Privacidade</a></li>
+                </ul>
+                <a href="contato.html" class="btn btn-primary btn-header">Entrar em Contato</a>
+                <button class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Agentes de IA Humanizados para Atendimento e Vendas</h1>
+                <p class="hero-subtitle">Transforme seu atendimento e vendas com agentes de IA que conversam naturalmente, qualificam leads e convertem 24 horas por dia.</p>
+                
+                <!-- Métricas de Impacto -->
+                <div class="hero-metrics">
+                    <div class="metric-box">
+                        <div class="metric-number">40%</div>
+                        <div class="metric-label">Redução de Custos</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-number">3x</div>
+                        <div class="metric-label">Mais Produtividade</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-number">24/7</div>
+                        <div class="metric-label">Atendimento Ativo</div>
+                    </div>
+                </div>
+                
+                <!-- CTA Principal -->
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 2rem;">
+                    <a href="contato.html" class="btn btn-primary btn-large">Falar com Especialista</a>
+                </div>
+                <p class="hero-note" style="margin-top: 1.5rem;">Diagnóstico gratuito: identificamos 3 oportunidades de automação para seu negócio</p>
+            </div>
+            <div class="hero-image">
+                <img src="logo-coruja.png" alt="Coruja AEDA" loading="lazy" decoding="async" class="coruja-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: O Que São Agentes de IA -->
+    <section style="padding: 4rem 0; background: linear-gradient(135deg, #5b3cc4 0%, #7c5fd4 100%); color: white;">
+        <div class="container">
+            <h2 class="section-title" style="color: white; text-align: center;">O Que São Agentes de IA Humanizados?</h2>
+            <p style="text-align: center; font-size: 1.1rem; max-width: 700px; margin: 0 auto 3rem; opacity: 0.95;">
+                Assistentes virtuais inteligentes que conversam de forma natural e empática, 
+                transformando o atendimento e as vendas da sua empresa
+            </p>
+            
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem;">
+                <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); padding: 2rem; border-radius: 8px; border: 2px solid rgba(255, 214, 0, 0.3);">
+                    <h3 style="font-size: 1.4rem; margin-bottom: 1rem; color: #ffd600;">Atendimento Inteligente 24/7</h3>
+                    <p style="line-height: 1.7; opacity: 0.95; margin-bottom: 1.5rem;">
+                        Nossos agentes atendem seus clientes com linguagem natural, 
+                        respondendo dúvidas e resolvendo problemas a qualquer hora.
+                    </p>
+                    <ul style="list-style: none; padding: 0; opacity: 0.95;">
+                        <li style="margin-bottom: 0.7rem;">Respostas personalizadas e contextuais</li>
+                        <li style="margin-bottom: 0.7rem;">Integração WhatsApp, site e redes sociais</li>
+                        <li style="margin-bottom: 0.7rem;">Aprendizado contínuo</li>
+                        <li style="margin-bottom: 0.7rem;">Transferência para humanos quando necessário</li>
+                    </ul>
+                </div>
+                
+                <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); padding: 2rem; border-radius: 8px; border: 2px solid rgba(255, 214, 0, 0.3);">
+                    <h3 style="font-size: 1.4rem; margin-bottom: 1rem; color: #ffd600;">Vendas Automatizadas</h3>
+                    <p style="line-height: 1.7; opacity: 0.95; margin-bottom: 1.5rem;">
+                        Agentes que qualificam leads, fazem follow-ups e conduzem o cliente 
+                        pela jornada de compra com conversas que convertem.
+                    </p>
+                    <ul style="list-style: none; padding: 0; opacity: 0.95;">
+                        <li style="margin-bottom: 0.7rem;">Qualificação automática de leads</li>
+                        <li style="margin-bottom: 0.7rem;">Follow-ups personalizados</li>
+                        <li style="margin-bottom: 0.7rem;">Respostas a objeções</li>
+                        <li style="margin-bottom: 0.7rem;">Agendamento automático de reuniões</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2.5rem;">
+                <div style="background: rgba(255, 214, 0, 0.2); border: 2px solid #ffd600; border-radius: 8px; padding: 1.5rem; max-width: 650px; margin: 0 auto;">
+                    <p style="font-size: 1rem; margin-bottom: 0.8rem; font-weight: 600;">
+                        Nossos agentes não são chatbots robóticos
+                    </p>
+                    <p style="line-height: 1.7; opacity: 0.95;">
+                        Utilizamos inteligência artificial avançada, treinada especificamente para o seu negócio, 
+                        com tom de voz da sua marca e capacidade de entender contexto.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefícios -->
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title">Benefícios dos Agentes de IA</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>Aumente Produtividade</h3>
+                    <p>Automatize tarefas repetitivas e foque no crescimento estratégico do seu negócio</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Reduza Custos</h3>
+                    <p>Otimize processos e reduza até 40% dos custos operacionais com automação inteligente</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Mais Conversões</h3>
+                    <p>Qualifique leads automaticamente e aumente sua taxa de conversão em vendas</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Decisões Claras</h3>
+                    <p>Dados e insights acionáveis em relatórios visuais que você realmente entende</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Como Funciona -->
+    <section class="process-section">
+        <div class="container">
+            <h2 class="section-title">Como Funciona</h2>
+            <p style="text-align: center; color: #666; max-width: 650px; margin: 0 auto;">
+                Um processo claro e eficiente para implementar agentes de IA no seu negócio
+            </p>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Diagnóstico Gratuito</h3>
+                    <p>Conversamos sobre seus desafios e identificamos oportunidades de IA</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Proposta Personalizada</h3>
+                    <p>Enviamos proposta com escopo, prazos e ROI esperado em 24 horas</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Implementação</h3>
+                    <p>Desenvolvemos e implementamos em 2-4 semanas com treinamento</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Resultados</h3>
+                    <p>Acompanhamos resultados e oferecemos suporte contínuo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Setores Atendidos -->
+    <section class="industries-section">
+        <div class="container">
+            <h2 class="section-title">Setores que Atendemos</h2>
+            <p style="text-align: center; color: #666; max-width: 650px; margin: 0 auto;">
+                Desenvolvemos agentes de IA personalizados para diversos setores
+            </p>
+            
+            <div class="industries-grid">
+                <div class="industry-card">
+                    <h3>Varejo e E-commerce</h3>
+                    <p>Atendimento automatizado, recomendações personalizadas e gestão de estoque</p>
+                </div>
+                
+                <div class="industry-card">
+                    <h3>Serviços Profissionais</h3>
+                    <p>Automação de processos, CRM inteligente e relatórios automatizados</p>
+                </div>
+                
+                <div class="industry-card">
+                    <h3>Saúde e Clínicas</h3>
+                    <p>Agendamento automático, prontuários digitais e gestão de pacientes</p>
+                </div>
+                
+                <div class="industry-card">
+                    <h3>Construção Civil</h3>
+                    <p>Gestão de obras, controle de estoque e orçamentos automatizados</p>
+                </div>
+                
+                <div class="industry-card">
+                    <h3>Contabilidade</h3>
+                    <p>Processamento de documentos, automação fiscal e relatórios inteligentes</p>
+                </div>
+                
+                <div class="industry-card">
+                    <h3>Educação</h3>
+                    <p>Gestão de alunos, automação administrativa e análise de desempenho</p>
+                </div>
+            </div>
+            
+            <p class="industries-cta">
+                Não encontrou seu setor? 
+                <a href="contato.html">Entre em contato</a> para um diagnóstico personalizado
+            </p>
+        </div>
+    </section>
+
+    <!-- Compromissos -->
+    <section class="commitments">
+        <div class="container">
+            <h2 class="section-title">Nosso Compromisso</h2>
+            <div class="commitments-grid">
+                <div class="commitment-card">
+                    <h3>Clareza Total</h3>
+                    <p>Você sempre saberá o que está sendo feito e por quê. Relatórios claros e compreensíveis.</p>
+                </div>
+                <div class="commitment-card">
+                    <h3>ROI Comprovado</h3>
+                    <p>Cada solução é desenhada para gerar retorno mensurável. Tecnologia com impacto real.</p>
+                </div>
+                <div class="commitment-card">
+                    <h3>Soluções Sob Medida</h3>
+                    <p>Nada de pacotes prontos. Desenvolvemos exatamente o que você precisa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Pronto para Transformar Seu Negócio?</h2>
+            <p>Entre em contato e descubra como agentes de IA podem ajudar sua empresa</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="contato.html" class="btn btn-primary btn-large">Falar com Especialista</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 style="color: #ffd600;">Studio AEDA Digital</h3>
+                    <p>Agentes de IA humanizados para atendimento e vendas. Transformamos tecnologia em clareza e resultados.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Navegação</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="servicos.html">Serviços</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                        <li><a href="privacidade.html">Privacidade</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <p><strong>E-mail:</strong><br><a href="mailto:s.aedadigital@gmail.com">s.aedadigital@gmail.com</a></p>
+                    <p><strong>WhatsApp:</strong><br><a href="https://wa.me/5583993751326" target="_blank">+55 (83) 99375-1326</a></p>
+                    <p><strong>Horário:</strong><br>Seg-Sex: 9h às 18h</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Localização</h4>
+                    <p>João Pessoa, PB - Brasil</p>
+                    <p style="margin-top: 1rem;">Atendemos empresas em todo o Brasil</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Redes Sociais</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61578330103145" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/studioaedadigital/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.tiktok.com/@studio.aeda" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.youtube.com/@studioaeda.digital" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Studio AEDA Digital. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/5583993751326?text=Olá!%20Vim%20do%20site%20e%20gostaria%20de%20saber%20mais" 
+       class="whatsapp-float" 
+       target="_blank"
+       aria-label="Falar no WhatsApp">
+        <svg viewBox="0 0 32 32" fill="white">
+            <path d="M16 0C7.164 0 0 7.164 0 16c0 2.832.748 5.484 2.044 7.78L0 32l8.42-2.044A15.93 15.93 0 0016 32c8.836 0 16-7.164 16-16S24.836 0 16 0zm0 29.336c-2.544 0-4.94-.708-6.972-1.932l-.5-.296-5.164 1.252 1.252-5.164-.296-.5A13.276 13.276 0 012.664 16c0-7.336 5.996-13.336 13.336-13.336S29.336 8.664 29.336 16 23.34 29.336 16 29.336z"/>
+            <path d="M23.5 19.5c-.332-.168-1.968-.972-2.272-1.084-.304-.112-.524-.168-.744.168-.22.336-.856 1.084-1.048 1.304-.192.22-.384.248-.716.08-.332-.168-1.4-.516-2.668-1.648-.988-.88-1.652-1.968-1.844-2.3-.192-.332-.02-.512.144-.676.148-.148.332-.384.5-.576.168-.192.22-.332.332-.552.112-.22.056-.416-.028-.576-.084-.168-.744-1.792-1.02-2.456-.268-.648-.54-.56-.744-.572-.192-.012-.416-.012-.64-.012s-.584.084-.888.416c-.304.332-1.164 1.14-1.164 2.78s1.192 3.224 1.356 3.444c.168.22 2.336 3.564 5.66 4.996.792.34 1.408.544 1.888.696.792.252 1.512.216 2.08.132.636-.096 1.968-.804 2.244-1.58.276-.776.276-1.44.192-1.58-.084-.14-.304-.22-.636-.388z"/>
+        </svg>
+    </a>
+
+    <!-- LGPD Banner -->
+    <div class="lgpd-banner" id="lgpdBanner">
+        <div class="lgpd-content">
+            <p>Utilizamos cookies para melhorar sua experiência. Ao continuar navegando, você concorda com nossa <a href="privacidade.html">Política de Privacidade</a> conforme a LGPD.</p>
+            <div class="lgpd-buttons">
+                <button class="lgpd-btn lgpd-btn-accept" id="lgpdAccept">Aceitar</button>
+                <button class="lgpd-btn lgpd-btn-decline" id="lgpdDecline">Recusar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="analytics-config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
