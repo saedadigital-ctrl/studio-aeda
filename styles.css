@@ -183,6 +183,7 @@ h1, h2, h3, h4, h5, h6, p {
     color: var(--white);
     padding: 5rem 0;
     text-align: center;
+    margin-bottom: 0;
 }
 
 .hero .container {
@@ -219,6 +220,7 @@ h1, h2, h3, h4, h5, h6, p {
 
 .hero-image {
     max-width: 400px;
+    margin-bottom: 0;
 }
 
 .coruja-img {
@@ -602,6 +604,20 @@ h1, h2, h3, h4, h5, h6, p {
     
     .hero-subtitle {
         font-size: 1rem;
+    }
+    
+    .hero {
+        padding: 3rem 0 2rem;
+        margin-bottom: 0;
+    }
+    
+    .hero-image {
+        margin-bottom: 0;
+        margin-top: 1rem;
+    }
+    
+    .coruja-img {
+        max-width: 250px;
     }
     
     .section-title {
