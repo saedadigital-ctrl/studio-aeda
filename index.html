@@ -127,18 +127,50 @@
             display: none;
         }
         
+        .step-icon-wrapper {
+            position: relative;
+            margin: 0 auto 1.5rem;
+            width: 100px;
+            height: 100px;
+        }
+        
+        .step-icon {
+            width: 100px;
+            height: 100px;
+            background: #ffd600;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .step-icon svg {
+            width: 50px;
+            height: 50px;
+            color: #000;
+        }
+        
         .step-number {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #5b3cc4, #7c5fd4);
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 45px;
+            height: 45px;
+            background: #5b3cc4;
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: 700;
-            margin: 0 auto 1rem;
+            border: 3px solid white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        
+        .process-step:hover .step-icon {
+            transform: scale(1.1) rotate(5deg);
         }
         
         .process-step h3 {
@@ -329,18 +361,38 @@
             <h2 class="section-title">Benefícios dos Agentes de IA</h2>
             <div class="benefits-grid">
                 <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                     <h3>Aumente Produtividade</h3>
                     <p>Automatize tarefas repetitivas e foque no crescimento estratégico do seu negócio.</p>
                 </div>
                 <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                     <h3>Reduza Custos</h3>
                     <p>Otimize processos e reduza até 40% dos custos operacionais com automação inteligente.</p>
                 </div>
                 <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                     <h3>Mais Conversões</h3>
                     <p>Qualifique leads automaticamente e aumente sua taxa de conversão em vendas.</p>
                 </div>
                 <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 20V10M12 20V4M6 20v-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                     <h3>Decisões Claras</h3>
                     <p>Dados e insights acionáveis em relatórios visuais que você realmente entende.</p>
                 </div>
@@ -358,27 +410,59 @@
             
             <div class="process-steps">
                 <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h3>Diagnóstico Gratuito</h3>
-                    <p>Conversamos sobre seus desafios e identificamos oportunidades de IA.</p>
+                    <div class="step-icon-wrapper">
+                        <div class="step-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="12" cy="12" r="3" fill="currentColor"/>
+                                <path d="M12 2v4M12 18v4M22 12h-4M6 12H2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="step-number">01</div>
+                    </div>
+                    <h3>Diagnóstico Inicial</h3>
+                    <p>Analisamos seus processos atuais e identificamos oportunidades de melhoria com IA.</p>
                 </div>
                 
                 <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h3>Proposta Personalizada</h3>
-                    <p>Enviamos a proposta com escopo, prazos e ROI esperado em até 24 horas.</p>
+                    <div class="step-icon-wrapper">
+                        <div class="step-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="step-number">02</div>
+                    </div>
+                    <h3>Estratégia Personalizada</h3>
+                    <p>Desenvolvemos uma estratégia sob medida, alinhada aos seus objetivos de negócio.</p>
                 </div>
                 
                 <div class="process-step">
-                    <div class="step-number">3</div>
+                    <div class="step-icon-wrapper">
+                        <div class="step-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="step-number">03</div>
+                    </div>
                     <h3>Implementação</h3>
-                    <p>Desenvolvemos e implementamos em 2 a 4 semanas, com treinamento.</p>
+                    <p>Colocamos a solução em funcionamento com acompanhamento próximo e suporte total.</p>
                 </div>
                 
                 <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h3>Resultados</h3>
-                    <p>Acompanhamos os resultados e oferecemos suporte contínuo.</p>
+                    <div class="step-icon-wrapper">
+                        <div class="step-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 12l-4-4v3H3v2h15v3l4-4z" fill="currentColor"/>
+                                <path d="M2 7l4 4 4-4M14 17l4-4 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="step-number">04</div>
+                    </div>
+                    <h3>Otimização Contínua</h3>
+                    <p>Monitoramos resultados e fazemos ajustes para maximizar o desempenho.</p>
                 </div>
             </div>
         </div>

@@ -65,6 +65,7 @@ h1, h2, h3, h4, h5, h6, p {
     width: 60px;
     height: 60px;
     object-fit: contain;
+    animation: float 3s ease-in-out infinite;
 }
 
 .logo-text {
@@ -268,10 +269,34 @@ h1, h2, h3, h4, h5, h6, p {
     border: 2px solid transparent;
 }
 
+
+
+.benefit-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--secondary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.benefit-icon svg {
+    width: 40px;
+    height: 40px;
+    color: #000;
+}
+
 .benefit-card:hover {
-    transform: translateY(-3px);
+    transform: translateY(-5px);
     border-color: var(--primary-color);
-    box-shadow: 0 4px 15px rgba(91, 60, 196, 0.15);
+    box-shadow: 0 10px 30px rgba(91, 60, 196, 0.15);
+}
+
+.benefit-card:hover .benefit-icon {
+    transform: scale(1.1) rotate(5deg);
 }
 
 .benefit-card h3 {
@@ -299,9 +324,9 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .industry-card:hover {
-    transform: translateY(-3px);
+    transform: translateY(-5px);
     border-color: var(--primary-color);
-    box-shadow: 0 4px 15px rgba(91, 60, 196, 0.15);
+    box-shadow: 0 10px 30px rgba(91, 60, 196, 0.15);
 }
 
 .industry-card h3 {
@@ -413,6 +438,16 @@ h1, h2, h3, h4, h5, h6, p {
     color: #ccc;
     line-height: 1.7;
     margin-bottom: 0.8rem;
+}
+
+.footer-section p a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section p a:hover {
+    color: var(--secondary-color);
 }
 
 .footer-links {
@@ -712,6 +747,15 @@ h1, h2, h3, h4, h5, h6, p {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
     }
 }
 
