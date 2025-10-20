@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços - Studio AEDA Digital</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/favicon.png" type="image/png">
+    <style>
+        .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+        .service-card { background: var(--bg-light); padding: 2.5rem; border-radius: 12px; position: relative; }
+        @media (max-width: 768px) { .services-grid { grid-template-columns: 1fr; } }
+        .service-icon-colored {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .service-icon-colored svg {
+            width: 40px;
+            height: 40px;
+        }
+        .icon-blue { background: linear-gradient(135deg, #3B82F6, #2563EB); }
+        .icon-purple { background: linear-gradient(135deg, #8B5CF6, #7C3AED); }
+        .icon-orange { background: linear-gradient(135deg, #FF8C42, #FF6B35); }
+        .icon-green { background: linear-gradient(135deg, #10B981, #059669); }
+        .service-card {
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .service-card:hover .service-icon-colored {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        .service-card h3 { font-size: 1.75rem; color: var(--primary-color); margin-bottom: 1rem; }
+        .service-card p { color: var(--text-light); margin-bottom: 1.5rem; line-height: 1.8; }
+        .service-features { list-style: none; padding: 0; }
+        .service-features li { padding: 0.5rem 0; padding-left: 1.5rem; position: relative; color: var(--text-dark); }
+        .service-features li:before { content: '✅'; position: absolute; left: 0; top: 50%; transform: translateY(-50%); }
+
+        .process-section { padding: 5rem 0; background-color: var(--bg-light); }
+        .process-section .section-title { margin-bottom: 1rem; }
+        .process-steps { display: flex; justify-content: center; align-items: flex-start; gap: 3rem; margin-top: 3rem; position: relative; }
+        .process-steps:before { content: ''; position: absolute; top: 40px; left: 0; right: 0; height: 2px; background-color: var(--primary-color); z-index: 0; width: calc(100% - 6rem); margin: 0 3rem; }
+        .process-step { flex: 1; text-align: center; position: relative; z-index: 1; max-width: 250px; }
+        .step-icon-wrapper { position: relative; display: inline-block; margin-bottom: 1.5rem; }
+        .step-icon { width: 80px; height: 80px; background-color: #ffd600; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .step-icon svg { width: 40px; height: 40px; stroke: #000; fill: none; stroke-width: 2.5px; }
+        .step-number { position: absolute; top: 0; right: 0; background-color: var(--primary-color); color: white; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.8rem; border: 2px solid var(--bg-light); }
+        .process-step h3 { font-size: 1.5rem; color: var(--primary-color); margin-bottom: 0.8rem; }
+        .process-step p { color: var(--text-light); font-size: 0.95rem; line-height: 1.6; }
+
+        @media (max-width: 768px) {
+            .process-steps { flex-direction: column; align-items: center; gap: 2rem; }
+            .process-steps:before { display: none; }
+            .process-step { max-width: 90%; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="AEDA Logo">
+                <div>
+                    <h1>Studio AEDA Digital</h1>
+                    <p>Agentes de IA Humanizados</p>
+                </div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="servicos.html" class="active">Serviços</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="privacidade.html">Privacidade</a></li>
+                </ul>
+                <a href="contato.html" class="btn btn-primary">Entrar em Contato</a>
+            </nav>
+            <button class="hamburger-menu" aria-label="Abrir Menu"></button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-small">
+            <div class="container">
+                <h1>Nossos Serviços</h1>
+                <p>Soluções completas de IA e automação para transformar seu negócio e impulsionar resultados</p>
+            </div>
+        </section>
+
+        <!-- Services Grid -->
+        <section style="padding: 5rem 0;">
+            <div class="container">
+                <div class="services-grid">
+                    <!-- Gestão Inteligente com IA -->
+                    <div class="service-card">
+                        <div class="service-icon-colored icon-purple">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-square">
+                                <polyline points="9 11 12 14 22 4"/>
+                                <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+                            </svg>
+                        </div>
+                        <h3>Gestão Inteligente com IA</h3>
+                        <p>Criação de agentes virtuais (chatbots, voicebots, GPTs customizados), atendimento automatizado em canais como WhatsApp, Messenger e e-mail, redução de custos operacionais com fluxos inteligentes.</p>
+                        <ul class="service-features">
+                            <li>Chatbots inteligentes</li>
+                            <li>Voicebots personalizados</li>
+                            <li>GPTs customizados</li>
+                            <li>Atendimento automatizado</li>
+                            <li>Integração WhatsApp/Messenger</li>
+                        </ul>
+                    </div>
+
+                    <!-- Automação e Integração -->
+                    <div class="service-card">
+                        <div class="service-icon-colored icon-blue">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-git-fork">
+                                <circle cx="12" cy="18" r="3"/>
+                                <circle cx="6" cy="6" r="3"/>
+                                <circle cx="18" cy="6" r="3"/>
+                                <path d="M18 9v2c0 .6-.4 1-1 1H7c-.6 0-1-.4-1-1V9"/>
+                                <path d="M12 15V9"/>
+                            </svg>
+                        </div>
+                        <h3>Automação e Integração</h3>
+                        <p>Integrações com diversas plataformas e CRMs personalizados, fluxos automatizados de vendas, cobrança e relacionamento.</p>
+                        <ul class="service-features">
+                            <li>Integrações entre plataformas</li>
+                            <li>APIs personalizadas</li>
+                            <li>CRMs personalizados</li>
+                            <li>Fluxos de vendas automatizados</li>
+                            <li>Gestão de relacionamento</li>
+                        </ul>
+                    </div>
+
+                    <!-- Marketing de Performance -->
+                    <div class="service-card">
+                        <div class="service-icon-colored icon-green">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-megaphone">
+                                <path d="m3 11 18-6v11l-18 6z"/>
+                                <path d="M7 21v-7"/>
+                                <path d="M22 11v-4"/>
+                                <path d="M18 11V7"/>
+                                <path d="M14 11V7"/>
+                            </svg>
+                        </div>
+                        <h3>Marketing de Performance</h3>
+                        <p>Planejamento e gestão de campanhas em plataformas de anúncios, funis de vendas otimizados para geração e nutrição de leads, estratégias de remarketing para aumentar conversão.</p>
+                        <ul class="service-features">
+                            <li>Campanhas em múltiplas plataformas</li>
+                            <li>Funis de vendas otimizados</li>
+                            <li>Remarketing e retargeting</li>
+                            <li>Análise de ROI e atribuição</li>
+                        </ul>
+                    </div>
+
+                    <!-- Inteligência de Dados -->
+                    <div class="service-card">
+                        <div class="service-icon-colored icon-orange">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bar-chart">
+                                <line x1="12" x2="12" y1="20" y2="10"/>
+                                <line x1="18" x2="18" y1="20" y2="4"/>
+                                <line x1="6" x2="6" y1="20" y2="16"/>
+                            </svg>
+                        </div>
+                        <h3>Inteligência de Dados</h3>
+                        <p>Dashboards interativos em plataformas de visualização de dados, relatórios estratégicos com storytelling de dados, modelos preditivos para prever comportamento de clientes e tendências de mercado.</p>
+                        <ul class="service-features">
+                            <li>Dashboards interativos</li>
+                            <li>Visualização de dados avançada</li>
+                            <li>Modelos preditivos</li>
+                            <li>Relatórios estratégicos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Como Trabalhamos -->
+        <section class="process-section">
+            <div class="container">
+                <h2 class="section-title">Como Trabalhamos</h2>
+                <p style="text-align: center; color: #666; max-width: 650px; margin: 0 auto;">
+                    Um processo claro e eficiente para implementar agentes de IA no seu negócio
+                </p>
+                
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-icon-wrapper">
+                          <div class="service-icon-colored icon-orange">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bar-chart">
+                                <line x1="12" x2="12" y1="20" y2="10"/>
+                                <line x1="18" x2="18" y1="20" y2="4"/>
+                                <line x1="6" x2="6" y1="20" y2="16"/>
+                            </svg>
+                        </div>                          <div class="step-number">01</div>
+                        </div>
+                        <h3>Diagnóstico Inicial</h3>
+                        <p>Analisamos seus processos atuais e identificamos oportunidades de melhoria com IA.</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-icon-wrapper">
+                            <div class="step-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="step-number">02</div>
+                        </div>
+                        <h3>Estratégia Personalizada</h3>
+                        <p>Desenvolvemos uma estratégia sob medida, alinhada aos seus objetivos de negócio.</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-icon-wrapper">
+                            <div class="step-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="step-number">03</div>
+                        </div>
+                        <h3>Implementação</h3>
+                        <p>Colocamos a solução em funcionamento com acompanhamento próximo e suporte total.</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-icon-wrapper">
+                            <div class="step-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M22 12l-4-4v3H3v2h15v3l4-4z" fill="#000"/>
+                                    <path d="M2 7l4 4 4-4M14 17l4-4 4 4" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="step-number">04</div>
+                        </div>
+                        <h3>Otimização Contínua</h3>
+                        <p>Monitoramos resultados e fazemos ajustes para maximizar o desempenho.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Pronto para transformar seu negócio com IA?</h2>
+                <p>Agende um diagnóstico gratuito e descubra como podemos ajudar sua empresa a crescer</p>
+                <a href="contato.html" class="btn btn-primary">Agendar Diagnóstico Gratuito</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>Studio AEDA Digital</h3>
+                    <p>Agência especializada em inteligência artificial e automação para otimizar processos e impulsionar o crescimento do seu negócio.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Links Úteis</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="sobre.html">Sobre Nós</a></li>
+                        <li><a href="servicos.html">Serviços</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                        <li><a href="privacidade.html">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contato</h3>
+                    <p>E-mail: s.aedadigital@gmail.com</p>
+                    <p>WhatsApp: +55 (83) 99375-1326</p>
+                    <p>Horário: Seg-Sex: 9h às 18h</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Studio AEDA Digital. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="cookie-banner" id="cookieBanner">
+        <p>Utilizamos cookies para melhorar sua experiência. Ao continuar navegando, você concorda com nossa <a href="privacidade.html">Política de Privacidade</a> conforme a LGPD.</p>
+        <div class="cookie-buttons">
+            <button id="acceptCookies" class="btn btn-secondary">Aceitar</button>
+            <button id="rejectCookies" class="btn btn-secondary">Recusar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
