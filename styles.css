@@ -590,6 +590,17 @@ h1, h2, h3, h4, h5, h6, p {
     .benefits-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+    
+    /* Cards de serviços mantém 2 colunas no tablet */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    /* Seção Como Trabalhamos em 2 colunas no tablet */
+    .work-process-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 2rem !important;
+    }
 }
 
 @media (max-width: 768px) {
@@ -663,6 +674,18 @@ h1, h2, h3, h4, h5, h6, p {
     .commitments-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+    }
+    
+    /* Cards de serviços em 1 coluna no mobile */
+    .services-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+    
+    /* Seção Como Trabalhamos em 1 coluna no mobile */
+    .work-process-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
     }
     
     .footer-content {
